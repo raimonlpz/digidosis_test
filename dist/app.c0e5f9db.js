@@ -224,6 +224,20 @@ var populateTemplateWithNewCard = function populateTemplateWithNewCard(action) {
   retriggerAnimationsAndPopulateContent(heading_divider, "landing-description-content-heading-sm-divider");
   retriggerAnimationsAndPopulateContent(regular_divider, "landing-description-content-divider");
   retriggerAnimationsAndPopulateContent(content_btn, "landing-description-content-btn");
+  retriggerHeroSliderAnimations();
+};
+
+var retriggerAnimationsAndPopulateContent = function retriggerAnimationsAndPopulateContent(el, className, htmlEl) {
+  el.classList.remove(className);
+  void content_id.offsetWidth;
+  el.classList.add(className);
+
+  if (htmlEl) {
+    el.innerHTML = htmlEl;
+  }
+};
+
+var retriggerHeroSliderAnimations = function retriggerHeroSliderAnimations() {
   hero_img.style.backgroundImage = "url(".concat(isMobileView ? selectedCard.img_mobile : selectedCard.img, ")");
   hero_img_backup.classList.remove('bg-01', 'bg-02', 'bg-03', 'remove-slider-trans-right', 'remove-slider-trans-left');
   void hero_img_backup.offsetWidth;
@@ -242,16 +256,6 @@ var populateTemplateWithNewCard = function populateTemplateWithNewCard(action) {
   }
 
   lastBgImgForBackUp = selectedCard.id;
-};
-
-var retriggerAnimationsAndPopulateContent = function retriggerAnimationsAndPopulateContent(el, className, htmlEl) {
-  el.classList.remove(className);
-  void content_id.offsetWidth;
-  el.classList.add(className);
-
-  if (htmlEl) {
-    el.innerHTML = htmlEl;
-  }
 };
 
 var initApp = function initApp() {
@@ -302,7 +306,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51000" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51104" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

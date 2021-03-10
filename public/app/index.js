@@ -105,25 +105,8 @@ const populateTemplateWithNewCard = (action) => {
         "landing-description-content-btn"
     );
 
-    hero_img.style.backgroundImage = `url(${isMobileView ? selectedCard.img_mobile : selectedCard.img})`;
+    retriggerHeroSliderAnimations();
 
-    hero_img_backup.classList.remove('bg-01', 'bg-02', 'bg-03', 'remove-slider-trans-right', 'remove-slider-trans-left');
-    void hero_img_backup.offsetWidth;
-
-    if (!isFirstLoad) {
-        hero_img_backup.classList.add(`bg-${lastBgImgForBackUp}`, `remove-slider-trans-${sliderDirection === 'left' ? 'right' : 'left'}`);
-
-        hero_img.classList.remove('present-slider-trans-right', 'present-slider-trans-left');
-        void hero_img.offsetWidth;
-        hero_img.classList.add(`present-slider-trans-${sliderDirection}`);
-
-        if (sliderDirection === 'right') {
-            hero_img.style.marginLeft = '-15%';
-        }  else {
-            hero_img.style.marginLeft = '14.99%';
-        }   
-    } 
-    lastBgImgForBackUp = selectedCard.id;
 }
 
 
@@ -134,6 +117,29 @@ const retriggerAnimationsAndPopulateContent = (el, className, htmlEl) => {
     if (htmlEl) {
         el.innerHTML = htmlEl;
     }
+}
+
+const retriggerHeroSliderAnimations = () => {
+    hero_img.style.backgroundImage = `url(${isMobileView ? selectedCard.img_mobile : selectedCard.img})`;
+    hero_img_backup.classList.remove('bg-01', 'bg-02', 'bg-03', 
+                                     'remove-slider-trans-right', 
+                                     'remove-slider-trans-left');
+    void hero_img_backup.offsetWidth;
+
+    if (!isFirstLoad) {
+        hero_img_backup.classList.add(`bg-${lastBgImgForBackUp}`, 
+                                      `remove-slider-trans-${sliderDirection === 'left' ? 'right' : 'left'}`
+                                      );
+
+        hero_img.classList.remove('present-slider-trans-right', 
+                                  'present-slider-trans-left');
+        void hero_img.offsetWidth;
+        hero_img.classList.add(`present-slider-trans-${sliderDirection}`);
+
+        if (sliderDirection === 'right') { hero_img.style.marginLeft = '-15%'; }  
+        else { hero_img.style.marginLeft = '14.99%'; }   
+    } 
+    lastBgImgForBackUp = selectedCard.id;
 }
 
 const initApp = () => {
