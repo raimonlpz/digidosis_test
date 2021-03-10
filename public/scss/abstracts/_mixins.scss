@@ -1,0 +1,124 @@
+@mixin arrow-hovered {
+    transition: all .5s;
+    &:hover {
+        cursor: pointer;
+        background-color: rgb(21, 80, 190);
+    }
+}
+
+@mixin icon-hovered-rotation {
+    transition: all .6s;
+    &:hover {
+        cursor: pointer;
+        -webkit-transform: rotateZ(180deg);
+        transform: rotateZ(180deg);
+    }
+}
+
+@keyframes onLoadDescriptionText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes increaseDividerWidth {
+    0% {
+        width: 50%;
+        opacity: 0;
+    }
+    100% {
+        width: 100%;
+        opacity: 100%;
+    }
+}
+
+@keyframes slideInFromBottomHeadings {
+    0% {
+        -webkit-transform: translateY(40%);
+        transform: translateY(40%);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 100%;
+      }
+}
+
+
+@keyframes slideInFromBottom {
+    0% {
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 100%;
+    }
+}
+
+@keyframes zoomOutSlider {  
+    0% { 
+        -webkit-transform:scale(1.4, 1.4);
+        transform:scale(1.4, 1.4); 
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform:scale(1, 1); 
+        transform:scale(1, 1); 
+        opacity: 100%;
+    }
+}
+
+@keyframes presentSliderFromLateralLeft {
+    0% { 
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes presentSliderFromLateralRight {
+    0% { 
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes removeSliderToLateralLeft {
+    0% { 
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+  
+    100% {
+        -webkit-transform: translateX(15%);
+        transform: translateX(15%);
+    }
+}
+
+@keyframes removeSliderToLateralRight {
+    0% { 
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+
+    100% {
+        -webkit-transform: translateX(-15%);
+        transform: translateX(-15%);
+    }
+
+}

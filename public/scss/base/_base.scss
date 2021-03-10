@@ -1,0 +1,23 @@
+@font-face {
+    font-family: Morton-Regular;
+    src: url('../../assets/Tipos/Morton/Morton-Light.otf');
+}
+@font-face {
+    font-family: Morton-Bold;
+    src: url('../../assets/Tipos/Morton/Morton-Bold.otf');
+}
+@font-face {
+    font-family: Butler-Bold;
+    src: url('../../assets/Tipos/Butler/Butler_Black.otf');
+}
+
+* {
+    margin:0;
+    padding: 0;
+}
+
+.container { 
+    background-color: color(primary);
+    width: 100vw;
+    height: 100vh;
+}
